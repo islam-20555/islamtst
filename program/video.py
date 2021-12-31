@@ -54,7 +54,7 @@ async def ytdl(link):
         return 0, stderr.decode()
 
 
-@Client.on_message(command(["vplay", f"vplay@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["شغل", f"vplay@{BOT_USERNAME}"]) & other_filters)
 async def vplay(c: Client, m: Message):
     await m.delete()
     replied = m.reply_to_message
@@ -62,8 +62,8 @@ async def vplay(c: Client, m: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
-                InlineKeyboardButton(text="• Cʟᴏsᴇ", callback_data="cls"),
+                InlineKeyboardButton(text="• القائمة", callback_data="cbmenu"),
+                InlineKeyboardButton(text="• اغلاق", callback_data="cls"),
             ]
         ]
     )
@@ -81,16 +81,16 @@ async def vplay(c: Client, m: Message):
         return
     if not a.can_manage_voice_chats:
         await m.reply_text(
-            "missing required permission:" + "\n\n» ❌ __Manage video chat__"
+            "اديلو يبرو صلاحية:" + "\n\n» ❌ __الكول__"
         )
         return
     if not a.can_delete_messages:
         await m.reply_text(
-            "missing required permission:" + "\n\n» ❌ __Delete messages__"
+            "اديلو يبرو صلاحية:" + "\n\n» ❌ __مسح الرسائل__"
         )
         return
     if not a.can_invite_users:
-        await m.reply_text("missing required permission:" + "\n\n» ❌ __Add users__")
+        await m.reply_text("اديلو يبرو صلاحية:" + "\n\n» ❌ __اضافة اعضاء__")
         return
     try:
         ubot = (await user.get_me()).id
@@ -126,7 +126,7 @@ async def vplay(c: Client, m: Message):
 
     if replied:
         if replied.video or replied.document:
-            loser = await replied.reply("📥 **downloading video...**")
+            loser = await replied.reply("📥 **تحميل الفيديو...**")
             dl = await replied.download()
             link = replied.link
             if len(m.command) < 2:
@@ -164,7 +164,7 @@ async def vplay(c: Client, m: Message):
                     amaze = MediumQualityVideo()
                 elif Q == 360:
                     amaze = LowQualityVideo()
-                await loser.edit("🔄 **Joining vc...**")
+                await loser.edit("🔄 **جار انضام حساب المساعد للمحادثه الصوتية...**")
                 await call_py.join_group_call(
                     chat_id,
                     AudioVideoPiped(
@@ -188,13 +188,13 @@ async def vplay(c: Client, m: Message):
                     "» reply to an **video file** or **give something to search.**"
                 )
             else:
-                loser = await c.send_message(chat_id, "🔍 **Searching...**")
+                loser = await c.send_message(chat_id, "🔍 **جار البحث...**")
                 query = m.text.split(None, 1)[1]
                 search = ytsearch(query)
                 Q = 720
                 amaze = HighQualityVideo()
                 if search == 0:
-                    await loser.edit("❌ **no results found.**")
+                    await loser.edit("❌ **لا يوجد هذا فالبحث.**")
                 else:
                     songname = search[0]
                     url = search[1]
@@ -217,7 +217,7 @@ async def vplay(c: Client, m: Message):
                             )
                         else:
                             try:
-                                await loser.edit("🔄 **Joining vc...**")
+                                await loser.edit("🔄 **جار انضمام الحساب المساعد للمحادثة الصوتية...**")
                                 await call_py.join_group_call(
                                     chat_id,
                                     AudioVideoPiped(
@@ -245,13 +245,13 @@ async def vplay(c: Client, m: Message):
                 "» reply to an **video file** or **give something to search.**"
             )
         else:
-            loser = await c.send_message(chat_id, "🔍 **Searching...**")
+            loser = await c.send_message(chat_id, "🔍 **جار البحث...**")
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             Q = 720
             amaze = HighQualityVideo()
             if search == 0:
-                await loser.edit("❌ **no results found.**")
+                await loser.edit("❌ **لا يوجد هذا فالبحث.**")
             else:
                 songname = search[0]
                 url = search[1]
@@ -274,7 +274,7 @@ async def vplay(c: Client, m: Message):
                         )
                     else:
                         try:
-                            await loser.edit("🔄 **Joining vc...**")
+                            await loser.edit("🔄 **جار انضمام حساب المساعد للمحادثة الصوتية...**")
                             await call_py.join_group_call(
                                 chat_id,
                                 AudioVideoPiped(
@@ -297,15 +297,15 @@ async def vplay(c: Client, m: Message):
                             await m.reply_text(f"🚫 error: `{ep}`")
 
 
-@Client.on_message(command(["vstream", f"vstream@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["لايف", f"vstream@{BOT_USERNAME}"]) & other_filters)
 async def vstream(c: Client, m: Message):
     await m.delete()
     chat_id = m.chat.id
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
-                InlineKeyboardButton(text="• Cʟᴏsᴇ", callback_data="cls"),
+                InlineKeyboardButton(text="• القائمة", callback_data="cbmenu"),
+                InlineKeyboardButton(text="• اغلاق", callback_data="cls"),
             ]
         ]
     )
@@ -323,23 +323,23 @@ async def vstream(c: Client, m: Message):
         return
     if not a.can_manage_voice_chats:
         await m.reply_text(
-            "missing required permission:" + "\n\n» ❌ __Manage video chat__"
+            "اديلو يبرو صلاحية:" + "\n\n» ❌ __الكول__"
         )
         return
     if not a.can_delete_messages:
         await m.reply_text(
-            "missing required permission:" + "\n\n» ❌ __Delete messages__"
+            "اديلو يبرو صلاحية:" + "\n\n» ❌ __مسح الرسائل__"
         )
         return
     if not a.can_invite_users:
-        await m.reply_text("missing required permission:" + "\n\n» ❌ __Add users__")
+        await m.reply_text("اديلو يبرو صلاحية:" + "\n\n» ❌ __اضافة ادمن__")
         return
     try:
         ubot = (await user.get_me()).id
         b = await c.get_chat_member(chat_id, ubot)
         if b.status == "kicked":
             await m.reply_text(
-                f"@{ASSISTANT_NAME} **is banned in group** {m.chat.title}\n\n» **unban the userbot first if you want to use this bot.**"
+                f"@{ASSISTANT_NAME} **خد بان فالبار** {m.chat.title}\n\n» **فك حظر حساب المساعد علشان يشتغل البوت.**"
             )
             return
     except UserNotParticipant:
@@ -416,7 +416,7 @@ async def vstream(c: Client, m: Message):
                 elif Q == 360:
                     amaze = LowQualityVideo()
                 try:
-                    await loser.edit("🔄 **Joining vc...**")
+                    await loser.edit("🔄 **جار انضمام حساب المساعد للمحادثة الصوتية...**")
                     await call_py.join_group_call(
                         chat_id,
                         AudioVideoPiped(

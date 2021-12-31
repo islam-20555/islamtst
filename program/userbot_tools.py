@@ -9,7 +9,7 @@ from driver.decorators import authorized_users_only, sudo_users_only
 
 
 @Client.on_message(
-    command(["userbotjoin", f"userbotjoin@{BOT_USERNAME}"]) & ~filters.private & ~filters.bot
+    command(["انضم", f"userbotjoin@{BOT_USERNAME}"]) & ~filters.private & ~filters.bot
 )
 @authorized_users_only
 async def join_chat(c: Client, m: Message):
@@ -31,11 +31,11 @@ async def join_chat(c: Client, m: Message):
                 (await user.get_me()).id,
                 can_manage_voice_chats=True
             )
-            return await user.send_message(chat_id, "✅ userbot already in chat")
-        return await user.send_message(chat_id, "✅ userbot already in chat")
+            return await user.send_message(chat_id, "✅ حساب المساعد موجود فالجروب")
+        return await user.send_message(chat_id, "✅ هو موجود يبرو اكتب شغل واسم الاغنيه واسمع")
 
 
-@Client.on_message(command(["userbotleave",
+@Client.on_message(command(["اخرج",
                             f"leave@{BOT_USERNAME}"]) & filters.group & ~filters.edited
 )
 @authorized_users_only
@@ -45,16 +45,16 @@ async def leave_chat(_, m: Message):
         await user.leave_chat(chat_id)
         return await _.send_message(
             chat_id,
-            "✅ userbot leaved chat",
+            "✅ مع السلامة 💕",
         )
     except UserNotParticipant:
         return await _.send_message(
             chat_id,
-            "❌ userbot already leave chat",
+            "❌ البوت يبرو خرج 💕",
         )
 
 
-@Client.on_message(command(["leaveall", f"leaveall@{BOT_USERNAME}"]))
+@Client.on_message(command(["خروج الكل", f"leaveall@{BOT_USERNAME}"]))
 @sudo_users_only
 async def leave_all(client, message):
     if message.from_user.id not in SUDO_USERS:
@@ -62,7 +62,7 @@ async def leave_all(client, message):
 
     left = 0
     failed = 0
-    lol = await message.reply("🔄 **userbot** leaving all chats !")
+    lol = await message.reply("🔄 **البوت** ويت يبرو البوت والحساب هيخرجو")
     async for dialog in user.iter_dialogs():
         try:
             await user.leave_chat(dialog.chat.id)

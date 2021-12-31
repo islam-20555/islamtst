@@ -59,20 +59,20 @@ async def cbguides(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""❓ **Basic Guide for using this bot:**
 
-1.) **First, add me to your group.**
-2.) **Then, promote me as administrator and give all permissions except Anonymous Admin.**
-3.) **After promoting me, type /reload in group to refresh the admin data.**
-3.) **Add @{ASSISTANT_NAME} to your group or type /userbotjoin to invite her.**
-4.) **Turn on the video chat first before start to play video/music.**
-5.) **Sometimes, reloading the bot by using /reload command can help you to fix some problem.**
+1.) **اولا اضفني الى المجموعه.**
+2.) **ثانيا ارفعني ادمن .الي المجموعه ثم رقيني ادمن .**
+3.) **بعد الترقيه اكتب reloadلاعادة تشغيل البوت بشكل جيد.**
+3.) **ضيف @{ASSISTANT_NAME} حساب المساعد او اكتب انضم علشان يدخل .**
+4.) **بعد لما تضيفه اكتب شغل لتشغيل اغاني او اكتب فيديو لتشغيل فيديو او لايغ .**
+5.) **كل فتره اعمل reload علشان لو في خطا يتصلح.**
 
-📌 **If the userbot not joined to video chat, make sure if the video chat already turned on, or type /userbotleave then type /userbotjoin again.**
+📌 **If the userbot not joined to video chat, make sure if the video chat already turned on, or type اخراج الكل then type /userbotjoin again.**
 
 💡 **If you have a follow-up questions about this bot, you can tell it on my support chat here: @{GROUP_SUPPORT}**
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbstart")]]
+            [[InlineKeyboardButton("🔙 الرجوع", callback_data="cbstart")]]
         ),
     )
 
@@ -88,12 +88,12 @@ async def cbcmds(_, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("👷🏻 Admin Cmd", callback_data="cbadmin"),
-                    InlineKeyboardButton("🧙🏻 Sudo Cmd", callback_data="cbsudo"),
+                    InlineKeyboardButton("👷🏻 اوامر ادمن الجروب", callback_data="cbadmin"),
+                    InlineKeyboardButton("🧙🏻 المطو، الاساسي", callback_data="cbsudo"),
                 ],[
-                    InlineKeyboardButton("📚 Basic Cmd", callback_data="cbbasic")
+                    InlineKeyboardButton("📚 الاوامر ", callback_data="cbbasic")
                 ],[
-                    InlineKeyboardButton("🔙 Go Back", callback_data="cbstart")
+                    InlineKeyboardButton("🔙 الرجوع", callback_data="cbstart")
                 ],
             ]
         ),
@@ -103,24 +103,24 @@ async def cbcmds(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbbasic"))
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 here is the basic commands:
+        f"""🏮 اوامر لاي شخص:
 
-» /mplay (song name/link) - play music on video chat
-» /vplay (video name/link) - play video on video chat
-» /vstream - play live video from yt live/m3u8
-» /playlist - show you the playlist
-» /video (query) - download video from youtube
-» /song (query) - download song from youtube
+» شغل (song name/link) - play music on video chat
+» فيديو (video name/link) - play video on video chat
+» لايف - play live video from yt live/m3u8
+» قائمة التشغيل - show you the playlist
+» تحميل فيديو (query) - download video from youtube
+» تحميل (query) - download song from youtube
 » /lyric (query) - scrap the song lyric
 » /search (query) - search a youtube video link
 
-» /ping - show the bot ping status
-» /uptime - show the bot uptime status
-» /alive - show the bot alive info (in group)
+» بنك - show the bot ping status
+» وقت التشغيل - show the bot uptime status
+» حالة البوت - show the bot alive info (in group)
 
 ⚡️ __Powered by {BOT_NAME} AI__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 رجوع", callback_data="cbcmds")]]
         ),
     )
 
@@ -128,18 +128,18 @@ async def cbbasic(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbadmin"))
 async def cbadmin(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 here is the admin commands:
+        f"""🏮 اوامر ادمن الجروب:
 
-» /pause - pause the stream
-» /resume - resume the stream
-» /skip - switch to next stream
-» /stop - stop the streaming
-» /vmute - mute the userbot on voice chat
-» /vunmute - unmute the userbot on voice chat
-» /volume `1-200` - adjust the volume of music (userbot must be admin)
-» /reload - reload bot and refresh the admin data
-» /userbotjoin - invite the userbot to join group
-» /userbotleave - order userbot to leave from group
+» وقف - pause the stream
+» كمل - resume the stream
+» تخطي - switch to next stream
+» ايقاف - stop the streaming
+» /كتم - mute the userbot on voice chat
+» الغاء كتم - unmute the userbot on voice chat
+» /الصوت `1-200` - adjust the volume of music (userbot must be admin)
+» reload - reload bot and refresh the admin data
+» انضم - invite the userbot to join group
+» اخرج - order userbot to leave from group
 
 ⚡️ __Powered by {BOT_NAME} AI__""",
         reply_markup=InlineKeyboardMarkup(
@@ -150,14 +150,14 @@ async def cbadmin(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbsudo"))
 async def cbsudo(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 here is the sudo commands:
+        f"""🏮 اوامر المطور الاساسي:
 
 » /rmw - clean all raw files
 » /rmd - clean all downloaded files
-» /sysinfo - show the system information
-» /update - update your bot to latest version
-» /restart - restart your bot
-» /leaveall - order userbot to leave from all group
+» معلومات السيرفر - show the system information
+» تحديث - update your bot to latest version
+» اعادة التشغيل - restart your bot
+» خروج الكل - order userbot to leave from all group
 
 ⚡ __Powered by {BOT_NAME} AI__""",
         reply_markup=InlineKeyboardMarkup(
@@ -176,7 +176,7 @@ async def cbmenu(_, query: CallbackQuery):
     chat_id = query.message.chat.id
     if chat_id in QUEUE:
           await query.edit_message_text(
-              f"⚙️ **settings of** {query.message.chat.title}\n\n⏸ : pause stream\n▶️ : resume stream\n🔇 : mute userbot\n🔊 : unmute userbot\n⏹ : stop stream",
+              f"⚙️ **الاعدادات** {query.message.chat.title}\n\n⏸ : pause stream\n▶️ : resume stream\n🔇 : mute userbot\n🔊 : unmute userbot\n⏹ : stop stream",
               reply_markup=InlineKeyboardMarkup(
                   [[
                       InlineKeyboardButton("⏹", callback_data="cbstop"),
