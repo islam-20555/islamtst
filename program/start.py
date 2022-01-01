@@ -56,7 +56,7 @@ async def start_(client: Client, message: Message):
         f"""✨ **مرحبا {message.from_user.mention()} !**\n
 💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ** يتيح لك تشغيل الموسيقى والفيديو في مجموعات من خلال محادثات الفيديو الجديدة في Telegram!!**
 
-💡 **لمعرفة جميع اوامر البوت اضغط علي » 📚 زرار الاوامر!*
+💡 **لمعرفة جميع اوامر البوت اضغط علي » 📚 زرار الاوامر!**
 
 🔖** لمعرفه طريقه استخدام اضغط علي كلمه  » ❓ زرار الدليل الاساسي!
 """,
@@ -75,10 +75,10 @@ async def start_(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "👥 جروب الدعم", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📣 القناة", url=f"https://t.me/{UPDATES_CHANNEL}"
                     ),
                 ],
                 [
