@@ -1,6 +1,6 @@
 {
     "name": "V e R s O n ,  Music Stream Bot",
-    "description": "Telegram bot for Streaming Video & Music trought the Telegram Group Video Chat, powered by pytgcalls and pyrogram",
+    "description": "Telegram bot for Streaming Video ",
     "logo": "https://telegra.ph/file/0b1ca5fd5bc68a82bd8b9.jpg",
     "keywords": [
         "pytgcalls",
@@ -8,8 +8,8 @@
         "video stream",
         "pyrogram"
     ],
-    "website": "https://t.me/verson2005",
-    "repository": "https://github.com/islam-20555/islamtst",
+    "website": "https://t.me/BU_QH",
+    "repository": "https://github.com/levina-lab/video-stream",
     "success_url": "https://t.me/Q_X_I_T",
     "env": {
         "API_ID": {
@@ -21,15 +21,15 @@
             "required": true
         },
         "BOT_TOKEN": {
-            "description": "your bot token from @BotFather",
+            "description": "your bot token from ",
             "required": true
         },
         "BOT_USERNAME": {
-            "description": "your bot username from @BotFather",
+            "description": "your bot username from ",
             "required": true
         },
         "BOT_NAME": {
-            "description": "fill with your bot name from @BotFather",
+            "description": "fill with your bot name from ",
             "required": true
         },
         "ASSISTANT_NAME": {
